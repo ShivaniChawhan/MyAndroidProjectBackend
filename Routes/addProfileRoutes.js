@@ -1,18 +1,22 @@
-const express = require('express');
 const multer = require('multer');
+const express = require('express');
+const router = express.Router();
 const { addProfile } = require('../controller/AddProfileController');
 
-const router = express.Router();
-
-// Configure multer for file uploads
+// Set up Multer storage
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => cb(null, 'uploads/'), // Upload folder
-    filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname),
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // Directory where files will be saved
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + '-' + file.originalname);
+    },
 });
 
 const upload = multer({ storage });
 
-// POST route to add user
-router.post('/add-profile', upload.single('profilePic'), addProfile);
+// Route for adding a profile
+router.post('/addProfile', upload.single('profilePic'), addProfile);
 
 module.exports = router;
