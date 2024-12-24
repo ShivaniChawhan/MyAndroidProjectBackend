@@ -12,6 +12,10 @@ const app = express();
 const PORT = process.env.API_PORT || 3002;
 // MongoDB Connection
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
 app.use('/uploads', express.static('uploads')); // Serve uploaded files
 mongoDB.connect();
