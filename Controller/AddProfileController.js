@@ -59,3 +59,42 @@ exports.addProfile = async (req, res) => {
         res.status(500).json({ error: 'Failed to add user', details: error.message });
     }
 };
+// Fetch all profiles
+exports.getAllProfiles = async (req, res) => {
+    try {
+        // Fetch all profiles from the database
+        const profiles = await Profile.find();
+
+        // Check if profiles exist
+        if (!profiles.length) {
+            return res.status(404).json({ message: 'No profiles found' });
+        }
+
+        // Respond with the list of profiles
+        res.status(200).json({ message: 'Profiles fetched successfully', profiles });
+    } catch (error) {
+        console.error('Error while fetching profiles:', error.message);
+        res.status(500).json({ error: 'Failed to fetch profiles', details: error.message });
+    }
+};
+
+// Fetch a specific profile by ID
+exports.getProfileById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Find the profile by ID
+        const profile = await Profile.findById(id);
+
+        // Check if the profile exists
+        if (!profile) {
+            return res.status(404).json({ message: 'Profile not found' });
+        }
+
+        // Respond with the profile
+        res.status(200).json({ message: 'Profile fetched successfully', profile });
+    } catch (error) {
+        console.error('Error while fetching profile:', error.message);
+        res.status(500).json({ error: 'Failed to fetch profile', details: error.message });
+    }
+};
