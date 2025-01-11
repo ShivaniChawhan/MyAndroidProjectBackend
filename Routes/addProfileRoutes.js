@@ -1,8 +1,8 @@
 const multer = require('multer');
 const express = require('express');
 const router = express.Router();
-const { addProfile } = require('../controller/AddProfileController');
-const { getAllProfiles } = require('../controller/AddProfileController');
+const { addProfile } = require('../Controller/AddProfileController');
+const { getAllProfiles } = require('../Controller/AddProfileController');
 
 // Set up Multer storage
 const storage = multer.diskStorage({

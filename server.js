@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const authRoutes = require('./routes/userRoutes');
+const authRoutes = require('./Routes/userRoutes');
 const postCollabRoutes = require('./Routes/postCollabRoutes')
 const profileROutes = require('./Routes/addProfileRoutes')
 const reportRoutes = require('./Routes/reportRoutes')
@@ -10,7 +10,7 @@ const mongoDB = require('./Config/DbConfig');
 
 
 const app = express();
-const PORT = process.env.API_PORT || 3002;
+const PORT = process.env.API_PORT || 9001;
 // MongoDB Connection
 app.use(express.urlencoded({ extended: true }));
 
