@@ -7,6 +7,7 @@ const postCollabRoutes = require('./Routes/postCollabRoutes')
 const profileROutes = require('./Routes/addProfileRoutes')
 const reportRoutes = require('./Routes/reportRoutes')
 const mongoDB = require('./Config/DbConfig');
+const userRoutes = require('./Routes/AuthRoutes')
 
 
 const app = express();
@@ -34,6 +35,7 @@ app.use('/auth', authRoutes);
 app.use('/api/post-collab', postCollabRoutes);
 app.use('/api', profileROutes)
 app.use('/api', reportRoutes)
+app.use('/api', userRoutes)
 
 // Home Route
 app.get('/', (req, res) => {

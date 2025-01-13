@@ -1,5 +1,5 @@
 const axios = require('axios');
-const User = require('../Models/UserModel');
+const User = require('../Models/UseerModel');
 
 // Facebook Login Callback
 exports.facebookCallback = async (req, res) => {
