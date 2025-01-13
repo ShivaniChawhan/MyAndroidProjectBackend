@@ -6,8 +6,12 @@ exports.addProfile = async (req, res) => {
         // Log the incoming request body for debugging
         console.log('Request Body:', req.body);
 
+        const parsedBody = JSON.parse(req.body);
+
+        console.log('Parsed Request Body:', parsedBody);
+
         // Extract data from form fields
-        const { name, instagramHandle, followersCount, niche, about, portfolioLink } = req.body;
+        const { name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
 
         // Log individual fields for debugging
         console.log('Extracted Fields:', { name, instagramHandle, followersCount, niche, about, portfolioLink });
