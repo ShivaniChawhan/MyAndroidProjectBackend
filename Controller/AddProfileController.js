@@ -8,10 +8,17 @@ exports.addProfile = async (req, res) => {
 
         const parsedBody = JSON.parse(req.body);
 
+//     // Parse the request body if it's a string
+//             let parsedBody;
+//             if (typeof req.body === 'string') {
+//                parsedBody = JSON.parse(req.body);
+//             } else {
+//                parsedBody = req.body;
+//             }
         console.log('Parsed Request Body:', parsedBody);
 
         // Extract data from form fields
-        const { name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
+           const { name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
 
         // Log individual fields for debugging
         console.log('Extracted Fields:', { name, instagramHandle, followersCount, niche, about, portfolioLink });
@@ -85,7 +92,7 @@ exports.getAllProfiles = async (req, res) => {
 // Fetch a specific profile by ID
 exports.getProfileById = async (req, res) => {
     try {
-        const { id } = req.params;
+    const { id } = req.params;
 
         // Find the profile by ID
         const profile = await Profile.findById(id);
