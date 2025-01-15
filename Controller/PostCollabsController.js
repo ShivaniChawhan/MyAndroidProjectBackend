@@ -1,4 +1,4 @@
-const PostCollab = require('../Models/postCollabModel');
+const PostCollab = require('../Models/PostCollabModel');
 
 // Create a new collaboration post
 exports.createPost = async (req, res) => {

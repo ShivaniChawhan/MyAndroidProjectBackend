@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const postCollabController = require('../Controller/postCollabsController');
+const postCollabController = require('../Controller/PostCollabsController');
 
 // Create a new collaboration post
 router.post('/', postCollabController.createPost);
