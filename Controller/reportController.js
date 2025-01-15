@@ -1,7 +1,7 @@
 const Report = require('../Models/reportModel');
 
 // Add user
-exports.submit_report = async (req, res) => {
+exports.submitReport = async (req, res) => {
     try {
         const report = new Report(req.body);
         await report.save();
