@@ -6,19 +6,28 @@ exports.addProfile = async (req, res) => {
         // Log the incoming request body for debugging
         console.log('Request Body:', req.body);
 
-        const parsedBody = JSON.parse(req.body);
+//        const parsedBody = JSON.parse(req.body);
 
-//     // Parse the request body if it's a string
-//             let parsedBody;
-//             if (typeof req.body === 'string') {
-//                parsedBody = JSON.parse(req.body);
-//             } else {
-//                parsedBody = req.body;
-//             }
+     // Parse the request body if it's a string
+             let parsedBody;
+             if (typeof req.body === 'string') {
+                parsedBody = JSON.parse(req.body);
+             } else {
+                parsedBody = req.body;
+             }
         console.log('Parsed Request Body:', parsedBody);
 
+        // Parse the 'profile' field if it's a string
+                let profileData;
+                if (typeof parsedBody.profile === 'string') {
+                    profileData = JSON.parse(parsedBody.profile);
+                } else {
+                    profileData = parsedBody.profile;
+                }
+                console.log('Parsed Profile Data:', profileData);
+
         // Extract data from form fields
-           const { name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
+           const { name, instagramHandle, followersCount, niche, about, portfolioLink } = profileData;
 
         // Log individual fields for debugging
         console.log('Extracted Fields:', { name, instagramHandle, followersCount, niche, about, portfolioLink });
@@ -41,9 +50,10 @@ exports.addProfile = async (req, res) => {
             });
 
             // Join the processed range back into a string like "10000-20000"
-            if (processedRange[0] !== null && processedRange[1] !== null) {
-                processedFollowersCount = `${processedRange[0]}-${processedRange[1]}`;
-            }
+//            if (processedRange[0] !== null && processedRange[1] !== null) {
+//                processedFollowersCount = `${processedRange[0]}-${processedRange[1]}`;
+//            }
+            processedFollowersCount = processedRange.filter(value => value !== null).join('-');
         }
 
         // Log processed followersCount
