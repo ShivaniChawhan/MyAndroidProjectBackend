@@ -9,31 +9,32 @@ exports.addProfile = async (req, res) => {
 //        const parsedBody = JSON.parse(req.body);
 
      // Parse the request body if it's a string
-             let parsedBody;
-             if (typeof req.body === 'string') {
-                parsedBody = JSON.parse(req.body);
-             } else {
-                parsedBody = req.body;
-             }
+            let parsedBody = req.body;
+                    if (typeof req.body === 'string') {
+                        try {
+                            parsedBody = JSON.parse(req.body);
+                        } catch (parseError) {
+                            return res.status(400).json({ error: 'Invalid JSON format' });
+                        }
+                    }
         console.log('Parsed Request Body:', parsedBody);
 
-        // Parse the 'profile' field if it's a string
-                let profileData;
-                if (typeof parsedBody.profile === 'string') {
-                    profileData = JSON.parse(parsedBody.profile);
-                } else {
-                    profileData = parsedBody.profile;
-                }
-                console.log('Parsed Profile Data:', profileData);
-
         // Extract data from form fields
-           const { name, instagramHandle, followersCount, niche, about, portfolioLink } = profileData;
+//           const { name, instagramHandle, followersCount, niche, about, portfolioLink } = profileData;
+
+
+        // Validate required fields
+                const { name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
+                if (!name || !instagramHandle) {
+                    return res.status(400).json({ error: 'Name and Instagram handle are required' });
+                }
 
         // Log individual fields for debugging
-        console.log('Extracted Fields:', { name, instagramHandle, followersCount, niche, about, portfolioLink });
+        console.log('Extracted Fields:', {name, instagramHandle, followersCount, niche, about, portfolioLink });
 
         // Extract file path
-        const profilePic = req.file ? req.file.path : null;
+        const profilePic = req.body.profilePic ? req.body.profilePic : null;
+        console.log('Profile Pic:', profilePic);
 
         // Preprocess followersCount (convert "10K-20K" to "10000-20000")
         let processedFollowersCount = '';
@@ -62,8 +63,8 @@ exports.addProfile = async (req, res) => {
         // Create a new profile document
         const user = new Profile({
             profilePic,          // Uploaded file path
-            name: name || null,  // Ensure null for missing fields
-            instagramHandle: instagramHandle || null,
+            name, // Ensure null for missing fields
+            instagramHandle,
             followersCount: processedFollowersCount || null, // Processed range as string
             niche: niche || null,
             about: about || null,
