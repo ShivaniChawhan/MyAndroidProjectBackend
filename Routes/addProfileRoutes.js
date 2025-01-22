@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const { addProfile } = require('../Controller/AddProfileController');
 const { getAllProfiles } = require('../Controller/AddProfileController');
+const { getProfileById } = require('../Controller/AddProfileController');
 
 // Set up Multer storage
 const storage = multer.diskStorage({
@@ -20,5 +21,8 @@ const upload = multer({ storage });
 // Route for adding a profile
 router.post('/addProfile', upload.single('profilePic'), addProfile);
 router.get('/getProfile', getAllProfiles);
+
+// Route to fetch a specific profile by ID
+router.get('/getProfile/:id', getProfileById);
 
 module.exports = router;

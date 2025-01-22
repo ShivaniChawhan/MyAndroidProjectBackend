@@ -3,8 +3,8 @@ const PostCollab = require('../Models/PostCollabModel');
 // Create a new collaboration post
 exports.createPost = async (req, res) => {
     try {
-        const { title, description, requiredFollowers, platforms } = req.body;
-        const newPost = new PostCollab({ title, description, requiredFollowers, platforms });
+        const { title, description, requiredFollowers, platforms, userId } = req.body;
+        const newPost = new PostCollab({ title, description, requiredFollowers, platforms, userId });
         await newPost.save();
         res.status(201).json({ message: 'Collaboration post created successfully', post: newPost });
     } catch (error) {
