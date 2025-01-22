@@ -6,31 +6,39 @@ exports.addProfile = async (req, res) => {
         // Log the incoming request body for debugging
         console.log('Request Body:', req.body);
 
-//        const parsedBody = JSON.parse(req.body);
+        // Parse the request body if it's a string
+        let parsedBody = req.body;
+       /* if (typeof req.body === 'string') {
+            try {
+                parsedBody = JSON.parse(req.body);
+            } catch (parseError) {
+                return res.status(400).json({ error: 'Invalid JSON format' });
+            }
+        }*/
+        if (req.body.profile) {
+             try {
+                   parsedBody = JSON.parse(req.body.profile);
+             } catch (parseError) {
+                   return res.status(400).json({ error: 'Invalid JSON format in profile' });
+             }
+        }
 
-     // Parse the request body if it's a string
-            let parsedBody = req.body;
-                    if (typeof req.body === 'string') {
-                        try {
-                            parsedBody = JSON.parse(req.body);
-                        } catch (parseError) {
-                            return res.status(400).json({ error: 'Invalid JSON format' });
-                        }
-                    }
         console.log('Parsed Request Body:', parsedBody);
 
         // Extract data from form fields
-//           const { name, instagramHandle, followersCount, niche, about, portfolioLink } = profileData;
+        const { userID, name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
 
+        console.log("UserID:", userID)
+        console.log("Instagram Handle:", instagramHandle)
+        console.log("Name:", name)
 
         // Validate required fields
-                const { name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
-                if (!name || !instagramHandle) {
-                    return res.status(400).json({ error: 'Name and Instagram handle are required' });
-                }
+        if (!userID || !name || !instagramHandle) {
+            return res.status(400).json({ error: 'User ID, Name, and Instagram handle are required' });
+        }
 
         // Log individual fields for debugging
-        console.log('Extracted Fields:', {name, instagramHandle, followersCount, niche, about, portfolioLink });
+        console.log('Extracted Fields:', { userID, name, instagramHandle, followersCount, niche, about, portfolioLink });
 
         // Extract file path
         const profilePic = req.body.profilePic ? req.body.profilePic : null;
@@ -51,9 +59,6 @@ exports.addProfile = async (req, res) => {
             });
 
             // Join the processed range back into a string like "10000-20000"
-//            if (processedRange[0] !== null && processedRange[1] !== null) {
-//                processedFollowersCount = `${processedRange[0]}-${processedRange[1]}`;
-//            }
             processedFollowersCount = processedRange.filter(value => value !== null).join('-');
         }
 
@@ -62,8 +67,9 @@ exports.addProfile = async (req, res) => {
 
         // Create a new profile document
         const user = new Profile({
+            userID,              // New user ID field
             profilePic,          // Uploaded file path
-            name, // Ensure null for missing fields
+            name,                // Ensure null for missing fields
             instagramHandle,
             followersCount: processedFollowersCount || null, // Processed range as string
             niche: niche || null,
@@ -81,6 +87,7 @@ exports.addProfile = async (req, res) => {
         res.status(500).json({ error: 'Failed to add user', details: error.message });
     }
 };
+
 // Fetch all profiles
 exports.getAllProfiles = async (req, res) => {
     try {

@@ -8,6 +8,7 @@ const profileSchema = new mongoose.Schema({
     niche: { type: String, required: false }, // Optional
     about: { type: String, required: false }, // Optional
     portfolioLink: { type: String, default: null }, // Optional
+    userID: { type: String, required: true }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Profile', profileSchema);
