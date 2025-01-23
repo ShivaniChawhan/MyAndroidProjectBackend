@@ -9,7 +9,7 @@ router.post('/', postCollabController.createPost);
 router.get('/', postCollabController.getAllPosts);
 
 // Fetch a single post by ID
-router.get('/:id', postCollabController.getPostById);
+router.get('/:userId', postCollabController.getPostById);
 
 // Update a collaboration post
 router.put('/:id', postCollabController.updatePost);

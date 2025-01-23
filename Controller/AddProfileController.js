@@ -1,4 +1,5 @@
 const Profile = require('../Models/AddProfilemodel');
+const mongoose = require('mongoose');
 
 // Add user
 exports.addProfile = async (req, res) => {
@@ -26,11 +27,12 @@ exports.addProfile = async (req, res) => {
         console.log('Parsed Request Body:', parsedBody);
 
         // Extract data from form fields
-        const { userID, name, instagramHandle, followersCount, niche, about, portfolioLink } = parsedBody;
+        const { userID, name, instagramHandle, followersCount, niche, about, portfolioLink, profilePic} = parsedBody;
 
         console.log("UserID:", userID)
         console.log("Instagram Handle:", instagramHandle)
         console.log("Name:", name)
+        console.log("Profile Pic:", profilePic)
 
         // Validate required fields
         if (!userID || !name || !instagramHandle) {
@@ -38,10 +40,10 @@ exports.addProfile = async (req, res) => {
         }
 
         // Log individual fields for debugging
-        console.log('Extracted Fields:', { userID, name, instagramHandle, followersCount, niche, about, portfolioLink });
+        console.log('Extracted Fields:', { userID, name, instagramHandle, followersCount, niche, about, portfolioLink, profilePic });
 
         // Extract file path
-        const profilePic = req.body.profilePic ? req.body.profilePic : null;
+//        profilePic = req.body.profilePic ? req.body.profilePic : null;
         console.log('Profile Pic:', profilePic);
 
         // Preprocess followersCount (convert "10K-20K" to "10000-20000")
@@ -107,23 +109,14 @@ exports.getAllProfiles = async (req, res) => {
     }
 };
 
-// Fetch a specific profile by ID
 exports.getProfileById = async (req, res) => {
     try {
-    const { id } = req.params;
-
-        // Find the profile by ID
-        const profile = await Profile.findById(id);
-
-        // Check if the profile exists
-        if (!profile) {
-            return res.status(404).json({ message: 'Profile not found' });
-        }
-
-        // Respond with the profile
-        res.status(200).json({ message: 'Profile fetched successfully', profile });
+        const profile = await Profile.find({ userID: req.params.userID }); // Fetch by userId
+        if (profile.length === 0) return res.status(404).json({ message: 'No profile found for this user' });
+        res.status(200).json(profile);
     } catch (error) {
-        console.error('Error while fetching profile:', error.message);
-        res.status(500).json({ error: 'Failed to fetch profile', details: error.message });
+        res.status(500).json({ message: 'Error fetching profile', error });
     }
 };
+
+

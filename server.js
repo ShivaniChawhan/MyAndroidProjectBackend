@@ -8,6 +8,7 @@ const profileROutes = require('./Routes/addProfileRoutes')
 const reportRoutes = require('./Routes/reportRoutes')
 const mongoDB = require('./Config/DbConfig');
 const userRoutes = require('./Routes/AuthRoutes')
+const getProfileById = require('./Routes/AddProfileRoutes');
 
 
 const app = express();
@@ -33,9 +34,9 @@ mongoDB.connect();
 // Routes
 app.use('/auth', authRoutes);
 app.use('/api/post-collab', postCollabRoutes);
-app.use('/api', profileROutes)
-app.use('/api', reportRoutes)
-app.use('/api', userRoutes)
+app.use('/api/', profileROutes);
+app.use('/api/report', reportRoutes);
+app.use('/api/user', userRoutes);
 
 // Home Route
 app.get('/', (req, res) => {
