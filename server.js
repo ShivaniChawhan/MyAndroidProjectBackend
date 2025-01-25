@@ -34,7 +34,7 @@ mongoDB.connect();
 // Routes
 app.use('/auth', authRoutes);
 app.use('/api/post-collab', postCollabRoutes);
-app.use('/api/', profileROutes);
+app.use('/api', profileROutes);
 app.use('/api/report', reportRoutes);
 app.use('/api/user', userRoutes);
 
