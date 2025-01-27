@@ -26,7 +26,7 @@ exports.getAllPosts = async (req, res) => {
 exports.getPostById = async (req, res) => {
     try {
         const posts = await PostCollab.find({ userId: req.params.userId }); // Fetch by userId
-        if (posts.length === 0) return res.status(404).json({ message: 'No posts found for this user' });
+        if (posts.length === 0) return res.status(404).json({ message: 'No posts found for this user ',userId});
         res.status(200).json(posts);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching posts', error });
