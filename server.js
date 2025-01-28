@@ -9,6 +9,9 @@ const reportRoutes = require('./Routes/reportRoutes')
 const mongoDB = require('./Config/DbConfig');
 const userRoutes = require('./Routes/AuthRoutes')
 const getProfileById = require('./Routes/AddProfileRoutes');
+const getUserById = require('./Routes/AppliedUserRoutes');
+const appliedUsersRoutes = require('./Routes/AppliedUserRoutes'); // Import the new route
+
 
 
 const app = express();
@@ -37,6 +40,7 @@ app.use('/api/post-collab', postCollabRoutes);
 app.use('/api', profileROutes);
 app.use('/api/report', reportRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/applied-users', appliedUsersRoutes); // Add the new route
 
 // Home Route
 app.get('/', (req, res) => {
