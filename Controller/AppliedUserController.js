@@ -4,7 +4,7 @@ const User = require('../Models/AppliedUserModel');
 // Save user data to MongoDB
 const saveUserData = async (req, res) => {
     try {
-        const { userName, followerCount, profilePic, title, descriptions, platforms, userId } = req.body;
+        const { userName, followerCount, profilePic, title, descriptions, platforms, loginUserId, userId, status } = req.body;
 
         // Validation
         if (!userName || !followerCount || !title || !platforms) {
@@ -18,7 +18,9 @@ const saveUserData = async (req, res) => {
             title,
             descriptions,
             platforms,
-            userId
+            loginUserId,
+            userId,
+            status
         });
 
         const savedUser = await newUser.save();
@@ -30,7 +32,7 @@ const saveUserData = async (req, res) => {
 
 const getUserById = async (req, res) => {
     try {
-        const appliedUser = await User.find({ userId: req.params.userId }); // Fetch by userId
+        const appliedUser = await User.find({ loginUserId: req.params.loginUserId }); // Fetch by userId
         if (appliedUser.length === 0) return res.status(404).json({ message: 'No User found for this user' });
         res.status(200).json(appliedUser);
     } catch (error) {
