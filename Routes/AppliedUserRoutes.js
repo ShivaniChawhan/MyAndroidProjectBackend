@@ -7,6 +7,6 @@ const router = express.Router();
 router.post('/saveUser', saveUserData);
 
 // Route to fetch a specific profile by ID
-router.get('/getUser/:userId', getUserById);
+router.get('/getUser/:loginUserId', getUserById);
 
 module.exports = router;
