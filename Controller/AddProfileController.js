@@ -27,12 +27,11 @@ exports.addProfile = async (req, res) => {
         console.log('Parsed Request Body:', parsedBody);
 
         // Extract data from form fields
-        const { userID, name, instagramHandle, followersCount, niche, about, portfolioLink, profilePic} = parsedBody;
+        const { userID, name, instagramHandle, followersCount, niche, about, portfolioLink} = parsedBody;
 
         console.log("UserID:", userID)
         console.log("Instagram Handle:", instagramHandle)
         console.log("Name:", name)
-        console.log("Profile Pic:", profilePic)
 
         // Validate required fields
         if (!userID || !name || !instagramHandle) {
@@ -40,10 +39,10 @@ exports.addProfile = async (req, res) => {
         }
 
         // Log individual fields for debugging
-        console.log('Extracted Fields:', { userID, name, instagramHandle, followersCount, niche, about, portfolioLink, profilePic });
+        console.log('Extracted Fields:', { userID, name, instagramHandle, followersCount, niche, about, portfolioLink});
 
         // Extract file path
-//        profilePic = req.body.profilePic ? req.body.profilePic : null;
+        let profilePic = req.file ? req.file.path.replace(/\\/g, '/') : null;
         console.log('Profile Pic:', profilePic);
 
         // Preprocess followersCount (convert "10K-20K" to "10000-20000")

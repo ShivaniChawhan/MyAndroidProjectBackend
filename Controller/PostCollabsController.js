@@ -3,8 +3,8 @@ const PostCollab = require('../Models/PostCollabModel');
 // Create a new collaboration post
 exports.createPost = async (req, res) => {
     try {
-        const { title, description, requiredFollowers, platforms, userId } = req.body;
-        const newPost = new PostCollab({ title, description, requiredFollowers, platforms, userId });
+        const { title, description, requiredFollowers, platforms, userId, isApplied } = req.body;
+        const newPost = new PostCollab({ title, description, requiredFollowers, platforms, userId, isApplied});
         await newPost.save();
         res.status(201).json({ message: 'Collaboration post created successfully', post: newPost });
     } catch (error) {
@@ -36,10 +36,10 @@ exports.getPostById = async (req, res) => {
 // Update a collaboration post
 exports.updatePost = async (req, res) => {
     try {
-        const { title, description, requiredFollowers, platforms } = req.body;
+        const { title, description, requiredFollowers, platforms, isApplied } = req.body;
         const updatedPost = await PostCollab.findByIdAndUpdate(
             req.params.id,
-            { title, description, requiredFollowers, platforms },
+            { title, description, requiredFollowers, platforms, isApplied },
             { new: true }
         );
         if (!updatedPost) return res.status(404).json({ message: 'Post not found' });

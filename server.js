@@ -10,6 +10,7 @@ const mongoDB = require('./Config/DbConfig');
 const userRoutes = require('./Routes/AuthRoutes')
 const getProfileById = require('./Routes/AddProfileRoutes');
 const getUserById = require('./Routes/AppliedUserRoutes');
+const getLoginUserById = require('./Routes/AppliedUserRoutes');
 const appliedUsersRoutes = require('./Routes/AppliedUserRoutes'); // Import the new route
 
 
