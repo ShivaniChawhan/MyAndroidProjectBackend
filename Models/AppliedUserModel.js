@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     platforms: { type: [String], required: true },
     loginUserId: { type: String, required: true },
     userId: { type: String, required: true },
-    status: {type:String, required: true, default: 'pending'},
+    status: {type:String, required: true, default: 'Pending'},
     isApplied: {type: Boolean, required: true}
 }, { timestamps: true });
 
