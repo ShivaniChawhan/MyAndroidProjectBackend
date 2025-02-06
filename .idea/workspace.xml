@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="595c2536-efdc-401f-a3ff-170c1a876aa5" name="Changes" comment="Final Backend code pushing on shivani branch" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$/MyAndroidProject" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/MyAndroidProject" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ShivaniChawhan&quot;
+  }
+}</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="4d18358e-118a-4685-bf30-bb4ff7582404" />
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ShivaniChawhan/MyAndroidProject.git",
+    "accountId": "4d18358e-118a-4685-bf30-bb4ff7582404"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2sFXfctCaMwhuKNCgED1dEPhuaY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Users/shiv1/IdeaProjects/Collab_App/CollabApp_Backend/collab_backend",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="595c2536-efdc-401f-a3ff-170c1a876aa5" name="Changes" comment="" />
+      <created>1738052401240</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738052401240</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Merge shivani branch in main branch">
+      <option name="closed" value="true" />
+      <created>1738052876020</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738052876020</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added AppliedUser data.">
+      <option name="closed" value="true" />
+      <created>1738081432961</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738081432961</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update in AppliedUsers.">
+      <option name="closed" value="true" />
+      <created>1738255581990</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738255581990</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update in AppliedUsers.">
+      <option name="closed" value="true" />
+      <created>1738255673387</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738255673387</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated backend">
+      <option name="closed" value="true" />
+      <created>1738336430071</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738336430071</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updated backend">
+      <option name="closed" value="true" />
+      <created>1738336568237</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738336568237</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added new endpoints for the flow in app. To resolve ApplyScreen issues.">
+      <option name="closed" value="true" />
+      <created>1738685012012</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738685012014</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added new endpoint to save status of appliedUsers to post">
+      <option name="closed" value="true" />
+      <created>1738773892517</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738773892517</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Final Backend code pushing on shivani branch">
+      <option name="closed" value="true" />
+      <created>1738837028959</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738837028960</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Final Backend code pushing on shivani branch">
+      <option name="closed" value="true" />
+      <created>1738837189358</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738837189358</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Final Backend code pushing on shivani branch">
+      <option name="closed" value="true" />
+      <created>1738837218479</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738837218479</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Final Backend code pushing on shivani branch">
+      <option name="closed" value="true" />
+      <created>1738837237683</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738837237683</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Final Backend code pushing on shivani branch">
+      <option name="closed" value="true" />
+      <created>1738838591835</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738838591835</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Merge shivani branch in main branch" />
+    <MESSAGE value="Added AppliedUser data." />
+    <MESSAGE value="Update in AppliedUsers." />
+    <MESSAGE value="Updated backend" />
+    <MESSAGE value="Just pushing backend code to git." />
+    <MESSAGE value="Added new endpoints for the flow in app. To resolve ApplyScreen issues." />
+    <MESSAGE value="Added new endpoint to save status of appliedUsers to post" />
+    <MESSAGE value="Final Backend code pushing on shivani branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Backend code pushing on shivani branch" />
+  </component>
+</project>
