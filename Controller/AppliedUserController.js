@@ -33,20 +33,22 @@ const saveUserData = async (req, res) => {
 const getLoginUserById = async (req, res) => {
     try {
         const appliedUser = await AppliedUser.find({ loginUserId: req.params.loginUserId }); // Fetch by loginUserId
-        if (appliedUser.length === 0) return res.status(404).json({ message: 'No User found for this user' });
-        res.status(200).json(appliedUser);
+        // Always return a success status with an empty body
+        res.status(200).send(appliedUser);
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching user', error: error.message });
+        // Log the error for debugging purposes
+        console.error('Error fetching user:', error.message);
+        // Still return a success status with an empty body
+        res.status(200).send();
     }
 };
-
 const getUserById = async (req, res) => {
     try {
         const appliedUser = await AppliedUser.find({ userId: req.params.userId }); // Fetch by userId
-        if (appliedUser.length === 0) return res.status(404).json({ message: 'No User found for this user' });
+        if (appliedUser.length === 0) return res.status(200).send();
         res.status(200).json(appliedUser);
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching user', error: error.message });
+        res.status(200).send();
     }
 };
 
